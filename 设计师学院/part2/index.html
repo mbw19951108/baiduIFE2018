@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>初步接触 CSS 2D 变形</title>
+</head>
+<style type="text/css">
+	.box{
+		text-align: center;
+		color: white;
+		width: 100px;
+		height: 100px;
+		line-height: 100px;
+		background-color: grey;
+		border: 1px solid black;
+		display: inline-block;
+		margin: 30px;
+	}
+	.box2{
+		/*元素的尺寸会增加或减少，根据给定的宽度（X 轴）和高度（Y 轴）参数：*/
+		transform: scale(0.5,1);
+		-ms-transform: scale(0.5,1);	/* IE 9 */
+		-webkit-transform: scale(0.5,1);	/* Safari 和 Chrome */
+		-o-transform: scale(0.5,1);	/* Opera */
+		-moz-transform: scale(0.5,1);	/* Firefox */
+	}
+	.box3{
+		transform: rotate(30deg);
+		-ms-transform: rotate(30deg);		/* IE 9 */
+		-webkit-transform: rotate(30deg);	/* Safari and Chrome */
+		-o-transform: rotate(30deg);		/* Opera */
+		-moz-transform: rotate(30deg);		/* Firefox */
+	}
+	.box4{
+		/*元素从其当前位置移动，根据给定的 left（x 坐标） 和 top（y 坐标） 位置参数：*/
+		transform: translate(10px,20px);
+		-ms-transform: translate(10px,20px);		/* IE 9 */
+		-webkit-transform: translate(10px,20px);	/* Safari and Chrome */
+		-o-transform: translate(10px,20px);		/* Opera */
+		-moz-transform: translate(10px,20px);
+	}
+	.box5{
+		/*元素翻转给定的角度，根据给定的水平线（X 轴）和垂直线（Y 轴）参数：*/
+		transform: skew(30deg,20deg);
+		-ms-transform: skew(30deg,20deg);	/* IE 9 */
+		-webkit-transform: skew(30deg,20deg);	/* Safari and Chrome */
+		-o-transform: skew(30deg,20deg);	/* Opera */
+		-moz-transform: skew(30deg,20deg);	/* Firefox */
+	}
+	.box1{
+		
+	}
+</style>
+<body>
+	<div class="box box0">box0</div>
+	<div class="box box1">boxAll</div>
+	<div class="box box2">box2</div>
+	<div class="box box3">box3</div>
+	<div class="box box4">box4</div>
+	<div class="box box5">box5</div>
+</body>
+</html>
