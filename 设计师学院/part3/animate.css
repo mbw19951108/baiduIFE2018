@@ -5,14 +5,14 @@
 	-webkit-transition: all 1s;	/* Safari 和 Chrome */
 	-o-transition: all 1s;	/* Opera */
 }
-.ear-left:hover{
+.container:hover .ear-left{
 	transform: rotate(-20deg);
 	-ms-transform: rotate(-20deg);		/* IE 9 */
 	-webkit-transform: rotate(-20deg);	/* Safari and Chrome */
 	-o-transform: rotate(-20deg);		/* Opera */
 	-moz-transform: rotate(-20deg);		/* Firefox */
 }
-.ear-right:hover{
+.container:hover .ear-right{
 	transform: rotate(20deg);
 	-ms-transform: rotate(20deg);		/* IE 9 */
 	-webkit-transform: rotate(20deg);	/* Safari and Chrome */
@@ -20,7 +20,7 @@
 	-moz-transform: rotate(20deg);		/* Firefox */
 }
 
-.face:hover .eye-bottom{
+.container:hover .eye-bottom{
 	transform:translate(0,-15px);
 	-ms-transform:translate(0,-15px); /* IE 9 */
 	-moz-transform:translate(0,-15px); /* Firefox */
@@ -28,20 +28,19 @@
 	-o-transform:translate(0,-15px); /* Opera */
 }
 
-.face:hover .eye-core{
+.container:hover .eye-core{
 	transform:scaleX(0.8);
 	-ms-transform:scaleX(0.8); 	/* IE 9 */
 	-moz-transform:scaleX(0.8); 	/* Firefox */
 	-webkit-transform:scaleX(0.8); /* Safari 和 Chrome */
 	-o-transform:scaleX(0.8);
 }
-.face:hover .face-red{
+.container:hover .face-red{
 	opacity: 1;
 }
-
-.face:hover .mouth-left{
+.container:hover .mouth-left{
 	border-radius: 0% 40% 50% 50%;
 }
-.face:hover .mouth-right{
+.container:hover .mouth-right{
 	border-radius: 40% 0% 50% 50%;
 }
