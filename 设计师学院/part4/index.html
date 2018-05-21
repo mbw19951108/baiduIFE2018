@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3d卡片翻转</title>
+	<style type="text/css">
+		*{
+			transition: all 1s;
+			-ms-transition: all 1s;
+			-moz-transition: all 1s;	/* Firefox 4 */
+			-webkit-transition: all 1s;	/* Safari 和 Chrome */
+			-o-transition: all 1s;	/* Opera */
+			margin: 0;
+			padding: 0;
+		}
+		.fan{
+			ransform: perspective(300px);
+			-ms-transform: perspective(300px);	/* IE 9 */
+			-webkit-transform: perspective(300px);	/* Safari and Chrome */
+			-o-transform: perspective(300px);		/* Opera */
+			-moz-transform: perspective(300px);		/* Firefox */
+
+			position: absolute;
+			left: 0;
+			z-index: 1;
+		}
+		.zheng{
+			transform: perspective(300px);
+			-ms-transform: perspective(300px);	/* IE 9 */
+			-webkit-transform: perspective(300px);	/* Safari and Chrome */
+			-o-transform: perspective(300px);		/* Opera */
+			-moz-transform: perspective(300px);		/* Firefox */
+
+			position: absolute;
+			z-index: 999;
+		}
+		.container:hover .zheng{
+			transform: rotateY(180deg);
+			-ms-transform: rotateY(180deg);		/* IE 9 */
+			-webkit-transform: rotateY(180deg);	/* Safari and Chrome */
+			-o-transform: rotateY(180deg);		/* Opera */
+			-moz-transform: rotateY(180deg);		/* Firefox */
+
+			z-index: 1;
+		}
+		.container:hover .fan{
+			transform: rotateY(180deg);
+			-ms-transform: rotateY(180deg);		/* IE 9 */
+			-webkit-transform: rotateY(180deg);	/* Safari and Chrome */
+			-o-transform: rotateY(180deg);		/* Opera */
+			-moz-transform: rotateY(180deg);		/* Firefox */
+			z-index: 999;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<img src="static/正面.jpg" class="zheng">
+		<img src="static/反面.jpg" class="fan">
+	</div>
+</body>
+</html>
