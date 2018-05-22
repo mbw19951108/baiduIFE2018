@@ -15,6 +15,12 @@
 			width: 100%;
 			height: 100%;
 		}
+		.mainImg{
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			top: 0;
+		}
 		.slider{
 			bottom: 10px;
 			position: fixed;
@@ -22,75 +28,85 @@
 			margin: auto;
 			left: 0;
 			right: 0;
+			z-index: 20;
 		}
-		.mainImg{
-			width: 100%;
-			height: 100%;
-			position: absolute;
-		}
-		img{
+		.btn{
 			width: 160px;
 			height: 90px;
 		}
-
-
 		.ani_1{
 			animation: ani_1 0.5s ease-out;
-		}
-		@keyframes ani_1
-		{
-			from {left: -100%;}
-			to {left: 0;}
 		}
 		.ani_2{
 			animation: ani_2 0.5s ease-out;
 		}
+		.ani_3{
+			animation: ani_3 1s ease-in;
+		}
+		.ani_4{
+			animation: ani_4 1s ease-out;
+		}
+		.ani_5{
+			animation: ani_5 0.7s ease-in-out;
+		}
+
+		@keyframes ani_1
+		{
+			from {left: -500px;}
+			to {left: 0;}
+		}
 		@keyframes ani_2
 		{
-			from {top: -100%;}
+			from {top: 350px;}
 			to {top: 0;}
-		}
-		.ani_3{
-			animation: ani_3 0.5s ease-in;
 		}
 		@keyframes ani_3
 		{
-			from {width: 1%;height: 1%;}
-			to {width: 100%;height: 100%;}
-		}
-		.ani_4{
-			animation: ani_4 0.5s ease-out;
+			from {transform: scale(0.1);}
+			to {transform: scale(1);}
 		}
 		@keyframes ani_4
 		{
-			from {width: 200%;height: 200%;}
-			to {width: 100%;height: 100%;}
-		}
-		.ani_5{
-			animation: ani_5 0.5s ease-in-out;
+			from {transform: scale(2);}
+			to {transform: scale(1);}
 		}
 		@keyframes ani_5
 		{
-			from {transform:rotate(180deg);}
-			to {transform:rotate(0deg);}
+			from {transform:rotate(360deg) scale(0.1);}
+			to {transform:rotate(0deg) scale(1);}
 		}
 	</style>
 </head>
 <body>
 	<div class="container">
-		<img src="static/1.jpg" class="mainImg" id="mainImg">
-		<div class="slider">
-			<img src="static/1.jpg" id="1" onclick="change(this.id)">
-			<img src="static/2.jpg" id="2" onclick="change(this.id)">
-			<img src="static/3.jpg" id="3" onclick="change(this.id)">
-			<img src="static/4.jpg" id="4" onclick="change(this.id)">
-			<img src="static/5.jpg" id="5" onclick="change(this.id)">
+		<img src="static/5.jpg" class="mainImg" id="img5">
+		<img src="static/4.jpg" class="mainImg" id="img4">
+		<img src="static/3.jpg" class="mainImg" id="img3">
+		<img src="static/2.jpg" class="mainImg" id="img2">
+		<img src="static/1.jpg" class="mainImg" id="img1">
+
+		<div class="slider" id="slider">
+			<img src="static/1.jpg" class="btn" id="1" onclick="change(this.id)">
+			<img src="static/2.jpg" class="btn" id="2" onclick="change(this.id)">
+			<img src="static/3.jpg" class="btn" id="3" onclick="change(this.id)">
+			<img src="static/4.jpg" class="btn" id="4" onclick="change(this.id)">
+			<img src="static/5.jpg" class="btn" id="5" onclick="change(this.id)">
 		</div>
 	</div>
 	<script type="text/javascript">
+		zindex = 10;
+		btnindex = 20;
 		function change(imgId){
-			document.getElementById("mainImg").setAttribute('src','static/'+ imgId +'.jpg');
-			document.getElementById("mainImg").setAttribute('class','mainImg ani_'+imgId );
+			var img = document.getElementById('img'+imgId);
+			var slider = document.getElementById('slider');
+			img.setAttribute('class','mainImg ani_'+imgId );
+			img.setAttribute('style','z-index: '+ zindex );
+			slider.setAttribute('style','z-index: '+ btnindex );
+			zindex ++;
+			btnindex ++;
+			setTimeout(() => {
+                img.classList.remove('ani_'+imgId);
+            }, 1000);
 		};
 	</script>
 </body>
