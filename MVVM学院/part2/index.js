@@ -1,4 +1,5 @@
-import san from 'san';
+
+
 var MyApp = san.defineComponent({
     template: '<p>Hello {{name}}!</p>',
 
