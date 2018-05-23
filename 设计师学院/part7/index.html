@@ -119,10 +119,21 @@
             .move{
                 animation: move 0.4s;
                 animation-fill-mode: forwards;
+                transform: scale(0.8);
             }
             .moveBefore{
                 animation: moveBefore 0.4s;
                 animation-fill-mode: forwards;
+                transform: scale(1.0);
+            }
+            .blank1,.blank2{
+                height: 2px;
+                width: 100%;
+                background-color: #2196f3;
+                opacity: 0;
+            }
+            .btn{
+                animation-iteration-count: infinite;
             }
             @keyframes move
             {
@@ -134,13 +145,6 @@
             {
                 0% {left: -5px;top: -15px;}
                 100% {left: 0;top: 0;}
-            }
-
-            .blank1,.blank2{
-                height: 2px;
-                width: 100%;
-                background-color: #2196f3;
-                opacity: 0;
             }
         </style>
     </head>
@@ -172,60 +176,49 @@
             </section>
         </section>
         <script>
+            //字体缩小上移 显示蓝底线
             $("#email").focus(function(){
-                $('#emailSpan').css("transform","scale(0.8)");
                 $('#emailSpan').addClass('move');
                 $('#emailSpan').removeClass('moveBefore');
-
                 $('.blank1').css("opacity","1");
             })
             $("#password").focus(function(){
-                $('#passSpan').css("transform","scale(0.8)");
                 $('#passSpan').addClass('move');
                 $('#passSpan').removeClass('moveBefore');
-
                 $('.blank2').css("opacity","1");
             })
+            // 失去焦点恢复原状
             $("#email").blur(function(){
-                if($("#email").val() == ''){
-                    $('#emailSpan').css("transform","scale(1.0)");
+                $('.blank1').css("width","0");
+                if(!($("#email").val().trim())){
                     $('#emailSpan').addClass('moveBefore');
                     $('#emailSpan').removeClass('move');
-
-                    $('.blank1').css("width","0");
-
-                    setTimeout(() => {
-                        $('.blank1').css("opacity","0");
-                        setTimeout(() => {
-                            $('.blank1').css("width","100%");
-                        }, 300);
-                    }, 300);
                 }
+                btn(1);
 
-                if ($("#email").val() != '' && $("#password").val() != '') {
-                    $("#btn").addClass("animated pulse");
-                }
             })
             $("#password").blur(function(){
-                if($("#password").val() == ''){
-                    $('#passSpan').css("transform","scale(1.0)");
+                $('.blank2').css("width","0");
+                if(!($("#password").val().trim())){
                     $('#passSpan').addClass('moveBefore');
                     $('#passSpan').removeClass('move');
-
-                    $('.blank2').css("width","0");
-
-                    setTimeout(() => {
-                        $('.blank2').css("opacity","0");
-                        setTimeout(() => {
-                            $('.blank2').css("width","100%");
-                        }, 300);
-                    }, 300);
                 }
+                btn(2);
+            })
 
-                if ($("#email").val() != '' && $("#password").val() != '') {
+            function btn(num){
+                // 按钮特效
+                if ($("#email").val().trim() && $("#password").val().trim()) {
                     $("#btn").addClass("animated pulse");
                 }
-            })
+                // 蓝底线恢复原状
+                setTimeout(() => {
+                    $('.blank'+num).css("opacity","0");
+                    setTimeout(() => {
+                        $('.blank'+num).css("width","100%");
+                    }, 300);
+                }, 300);
+            }
         </script>
     </body>
 </html>
