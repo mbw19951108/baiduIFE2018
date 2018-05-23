@@ -193,6 +193,7 @@
                 if(!($("#email").val().trim())){
                     $('#emailSpan').addClass('moveBefore');
                     $('#emailSpan').removeClass('move');
+                    $("#btn").removeClass("animated pulse");
                 }
                 btn(1);
 
@@ -202,6 +203,7 @@
                 if(!($("#password").val().trim())){
                     $('#passSpan').addClass('moveBefore');
                     $('#passSpan').removeClass('move');
+                    $("#btn").removeClass("animated pulse");
                 }
                 btn(2);
             })
