@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>San</title>
+</head>
+<body>
+	<script src="https://unpkg.com/san@latest/dist/san.dev.js"></script>
+	<script src="./index.js"></script>
+	<script>
+		var MyApp = san.defineComponent({
+			template: ''
+			+ ' <div> '
+			+ ' <input type="text" name="" placeholder="姓名（string）" value="{= name =}"> '
+			+ ' <input type="number" name="" placeholder="年龄（string）" value="{= age =}"> '
+			+ ' <input type="text" name="" placeholder="性别（string）" value="{= des =}"><br> '
+			+ ' <span>信息：</span><button on-click="touch">移除信息</button><br> '
+			+ ' <span>姓名：</span><span>{{ name }}</span><br> '
+			+ ' <span>年龄：</span><span>{{ age }}</span><br> '
+			+ ' <span>性别：</span><span>{{ des }}</span><br> '
+			+ ' </div> ',
+		    initData: function () {
+		        return {
+		            name: '',
+		            age: '',
+		            des: ''
+		        };
+		    },
+		    touch: function () {
+		    	console.log(1);
+		    	this.data.set('name',''),
+		    	this.data.set('age',''),
+		    	this.data.set('des','')
+		    }
+		});
+
+
+		var myApp = new MyApp();
+		myApp.attach(document.body);
+	</script>
+</body>
+</html>
