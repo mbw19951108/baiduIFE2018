@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>San</title>
+</head>
+<body>
+	<script src="https://unpkg.com/san@latest/dist/san.dev.js"></script>
+	<script src="./index.js"></script>
+	<script>
+		var MyApp = san.defineComponent({
+			template: 
+			`<div>
+				<button on-click="touch">添加</button><br>
+				<table border="1">
+					<tr>
+						<th>姓名</th>
+						<th>审核状态</th>
+					    <th>操作</th>
+					</tr>
+					<tr s-for="p in persons">
+						<td>{{ p.name }}</td>
+						<td>{{ p.mark }}</td>
+						<td>
+							<button s-if="p.mark != '待审核'" on-click="del($index)">删除</button>
+							<button s-else on-click="cha($index)">审核</button>
+						</td>
+					</tr>
+				</table>
+			</div>`,
+		    initData: function () {
+		        return {
+		            persons: [
+		                {name: '张三', mark: '合格'},
+		                {name: '李四', mark: '不合格'},
+		                {name: '王五', mark: '待审核'},
+		                {name: '赵六', mark: '待审核'},
+		                {name: '孙七', mark: '待审核'}
+		            ]
+		        };
+		    },
+		    touch: function () {
+		    	this.data.push('persons', {name: '张三', mark: '合格'});
+		    },
+		    del: function(index) {
+		    	this.data.removeAt('persons', index);
+		    },
+		    cha: function(index) {
+		    	this.data.set('persons[index].mark', '111合格');
+		    }
+		});
+
+
+		var myApp = new MyApp();
+		myApp.attach(document.body);
+	</script>
+</body>
+</html>
