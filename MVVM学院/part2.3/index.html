@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>San</title>
+</head>
+<body>
+	<script src="https://unpkg.com/san@latest/dist/san.dev.js"></script>
+	<script>
+		var MyApp = san.defineComponent({
+			template: 
+			`<div style="background:{{ tog ? 'red' : 'blue' }}};width:100px;height:100px;" on-click="toggle"></div>`,
+		    initData: function () {
+		        return {
+		        	tog: true
+		        };
+		    },
+		    toggle() {
+		    	let tog_ = this.data.get('tog');
+		    	tog_ = !tog_;
+		    	this.data.set('tog', tog_);
+		    	console.log(tog_);
+		    }
+		});
+
+
+		var myApp = new MyApp();
+		myApp.attach(document.body);
+	</script>
+</body>
+</html>
